@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+
+namespace Module3Assignment
+{
+    // Person class
+    public class Person
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public Person(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        public virtual void DisplayDetails()
+        {
+            Console.WriteLine($"Name: {FirstName} {LastName}");
+        }
+    }
+
+   
+    public class Student : Person
+    {
+        public int StudentID { get; set; }
+        public string Major { get; set; }
+
+        public Student(string firstName, string lastName, int studentID, string major)
+            : base(firstName, lastName)
+        {
+            StudentID = studentID;
+            Major = major;
+        }
+
+        public override void DisplayDetails()
+        {
+            Console.WriteLine($"Name: {FirstName} {LastName}, Student ID: {StudentID}, Major: {Major}");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Person> people = new List<Person>
+            {
+                new Person("John", "Doe"),
+                new Student("Jane", "Smith", 12345, "Computer Science"),
+                new Person("Emily", "Johnson"),
+                new Student("Michael", "Brown", 67890, "Mathematics")
+            };
+
+            foreach (var person in people)
+            {
+                person.DisplayDetails();
+            }
+        }
+    }
+}
