@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_KEYS 100
+
+
+typedef struct {
+    char* key;
+    char* value;
+} Entry;
+
+
+typedef struct {
+    Entry entries[MAX_KEYS];
+    int size;
+} Dictionary;
+
+// Function prototypes
+void populateDictionary(Dictionary* dict);
+void displayDictionaryContents(Dictionary* dict);
+void removeKey(Dictionary* dict, char* key);
+void addNewKeyValuePair(Dictionary* dict, char* key, char* value);
+void addValueToExistingKey(Dictionary* dict, char* key, char* newValue);
+void sortKeys(Dictionary* dict);
+
+int main() {
+    Dictionary dict;
+    dict.size = 0;
+    int choice;
+    char key[50];
+    char value[50];
+    char newValue[50];
+
+    do {
+        printf("\nMenu:\n");
+        printf("1. Populate Dictionary\n");
+        printf("2. Display Dictionary Contents\n");
+        printf("3. Remove a Key\n");
+        printf("4. Add a New Key and Value\n");
+        printf("5. Add a Value to an Existing Key\n");
+        printf("6. Sort the Keys\n");
+        printf("7. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                populateDictionary(&dict);
+                break;
+            case 2:
+                displayDictionaryContents(&dict);
+                break;
+            case 3:
+                printf("Enter the key to remove: ");
+                scanf("%s", key);
+                removeKey(&dict, key);
+                break;
+            case 4:
+                printf("Enter the new key: ");
+                scanf("%s", key);
+                printf("Enter the new value: ");
+                scanf("%s", value);
+                addNewKeyValuePair(&dict, key, value);
+                break;
+            case 5:
+                printf("Enter the existing key: ");
+                scanf("%s", key);
+                printf("Enter the new value to append: ");
+                scanf("%s", newValue);
+                addValueToExistingKey(&dict, key, newValue);
+                break;
+            case 6:
+                sortKeys(&dict);
+                break;
+            case 7:
+                printf("Exiting program.\n");
+                break;
+            default:
+                printf("Invalid choice. Please enter a number between 1 and 7.\n");
+        }
+    } while (choice != 7);
+
+    return 0;
+}
+
+void populateDictionary(Dictionary* dict) {
+ 
+}
+
+void displayDictionaryContents(Dictionary* dict) {
+    
+}
+
+void removeKey(Dictionary* dict, char* key) {
+    
+}
+
+void addNewKeyValuePair(Dictionary* dict, char* key, char* value) {
+    
+}
+
+void addValueToExistingKey(Dictionary* dict, char* key, char* newValue) {
+    
+}
+
+void sortKeys(Dictionary* dict) {
+    
+}
